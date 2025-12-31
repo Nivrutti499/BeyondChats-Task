@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Nivrutti499/BeyondChats-Task.git/static/css/main.3360a8ec.css",
+    "main.js": "/Nivrutti499/BeyondChats-Task.git/static/js/main.1ccc1ec5.js",
+    "index.html": "/Nivrutti499/BeyondChats-Task.git/index.html",
+    "main.3360a8ec.css.map": "/Nivrutti499/BeyondChats-Task.git/static/css/main.3360a8ec.css.map",
+    "main.1ccc1ec5.js.map": "/Nivrutti499/BeyondChats-Task.git/static/js/main.1ccc1ec5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3360a8ec.css",
+    "static/js/main.1ccc1ec5.js"
+  ]
+}
