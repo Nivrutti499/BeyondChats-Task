@@ -1,0 +1,23 @@
+{
+  "name": "beyondchats-article-enhancer",
+  "version": "1.0.0",
+  "description": "Node.js script to enhance articles using LLM API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": ["articles", "llm", "enhancement"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.3.1",
+    "puppeteer": "^21.5.0"
+  }
+}
+
+
+
+

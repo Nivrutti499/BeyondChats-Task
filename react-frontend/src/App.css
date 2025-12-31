@@ -1,0 +1,368 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: 2px solid #667eea;
+  background-color: white;
+  color: #667eea;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.filter-buttons button:hover {
+  background-color: #f0f0ff;
+}
+
+.filter-buttons button.active {
+  background-color: #667eea;
+  color: white;
+}
+
+.loading,
+.no-articles {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.article-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.article-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #667eea;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.article-badge:contains("Updated") {
+  background: #48bb78;
+}
+
+.article-title {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #333;
+  line-height: 1.3;
+  margin-right: 80px;
+}
+
+.article-content {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.article-date {
+  color: #999;
+}
+
+.article-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.article-link:hover {
+  text-decoration: underline;
+}
+
+.article-references {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  font-size: 0.85rem;
+}
+
+.article-references strong {
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.article-references ul {
+  list-style: none;
+  padding: 0;
+}
+
+.article-references li {
+  margin-bottom: 5px;
+}
+
+.article-references a {
+  color: #667eea;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.article-references a:hover {
+  text-decoration: underline;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #999;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.modal-content h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  line-height: 1.3;
+  padding-right: 50px;
+}
+
+.modal-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.modal-body {
+  line-height: 1.8;
+}
+
+.article-full-content {
+  margin-bottom: 30px;
+}
+
+.article-full-content p {
+  margin-bottom: 15px;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.article-references-full {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #eee;
+}
+
+.article-references-full h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.article-references-full ul {
+  list-style: none;
+  padding: 0;
+}
+
+.article-references-full li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.article-references-full li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+}
+
+.article-references-full a {
+  color: #667eea;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.article-references-full a:hover {
+  text-decoration: underline;
+}
+
+.article-original-link {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.article-original-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.article-original-link a:hover {
+  text-decoration: underline;
+}
+
+.app-footer {
+  background: #333;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.app-footer p {
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .modal-content {
+    padding: 30px 20px;
+  }
+
+  .modal-content h1 {
+    font-size: 1.5rem;
+    padding-right: 40px;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+  }
+
+  .filter-buttons button {
+    flex: 1;
+    min-width: 100px;
+  }
+}
+
+
+
+

@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+laravel-backend/storage/logs/*
+nodejs-script/*.log
+
+# Build files
+react-frontend/build/
+react-frontend/.pnp
+react-frontend/.pnp.js
+
+# Testing
+coverage/
+
+# Database
+*.sqlite
+*.sqlite3
+
+
+
+
